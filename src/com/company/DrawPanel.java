@@ -14,10 +14,10 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
-    public class Tuple<String, Point> {
+    public class strPointPair<String, Point> { //TODO Is this really a tuple?
         public final String x;
         public Point y;
-        public Tuple(String x, Point y) {
+        public strPointPair(String x, Point y) {
             this.x = x;
             this.y = y;
         }
@@ -34,11 +34,11 @@ public class DrawPanel extends JPanel{
     // To keep track of a single cars position
     Point volvoPoint = new Point();
     List<Point> pointList = new ArrayList<>();
-    HashMap<Integer, Tuple> modelnameIndexMap = new HashMap<>();
+    HashMap<Integer, strPointPair> modelnameIndexMap = new HashMap<>();
 
     // TODO: Make this general for all cars
     void moveit(int x, int y, String name, int i){
-        modelnameIndexMap.put(i, new Tuple<String, Point>(name, new Point(x, y)));
+        modelnameIndexMap.put(i, new strPointPair<String, Point>(name, new Point(x, y)));
     }
 
     // Initializes the panel and reads the images
@@ -75,7 +75,7 @@ public class DrawPanel extends JPanel{
             int y = (int) imgPoint.getY();
 
             try {
-                g.drawImage(ImageIO.read(new File(("src\\pics\\" + modelnameIndexMap.get(i).x + ".jpg"))),x, y, null);
+                g.drawImage(ImageIO.read(new File(("src\\picas\\" + modelnameIndexMap.get(i).x + ".jpg"))),x, y, null);
             } catch(IOException ex)
             {
                 ex.printStackTrace();

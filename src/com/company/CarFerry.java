@@ -29,7 +29,7 @@ public abstract class CarFerry extends MotorizedVehicle implements Loadable<Car>
      * @param laneIndex index of lane to load cars
      * @param car       object to be loaded
      */
-    public void load(int laneIndex, Car car) {
+    public void load(int laneIndex, Car car) { //TODO Make private, implement load(Car car)
         try {
             if (lanes.get(laneIndex).getCargoList().size() <= maxNCarsPerLane && lanes.get(laneIndex).cargoIsCloseEnough(car, 25)) {
                 lanes.get(laneIndex).load(car);

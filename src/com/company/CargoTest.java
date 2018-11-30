@@ -51,7 +51,7 @@ public class CargoTest {
 
     @Test
     public void unloadFirst() {
-        //StenaLane stean = new StenaLane(2, );
+        //StenaSuperfastX stean = new StenaSuperfastX(2, );
         Saab95 saab = new Saab95();
         Saab95 saab2 = new Saab95();
 
