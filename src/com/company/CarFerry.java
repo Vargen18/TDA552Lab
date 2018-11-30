@@ -6,7 +6,7 @@ import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-public abstract class CarFerry extends MotorizedVehicle {
+public abstract class CarFerry extends MotorizedVehicle implements Loadable<Car>{
 
     private ArrayList<Cargo<Car>> lanes;
     private final int maxNCarsPerLane;
