@@ -2,7 +2,6 @@ package com.company;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
@@ -12,7 +11,7 @@ public abstract class CarFerry extends MotorizedVehicle implements Loadable<Car>
     private final int maxNCarsPerLane;
     private final double maxCargoLength;
 
-    public CarFerry(int nrDoors, double enginePower, Color color, String modelName, Point2D.Double position, cardinalDirection direction,
+    public CarFerry(int nrDoors, double enginePower, Color color, String modelName, Point2D.Double position, CardinalDirections.cardinalDirection direction,
                     double length, double width, int maxNCarsPerLane, int nLanes, double maxCargoLength) {
         super(nrDoors, enginePower, Color.CYAN, modelName, position, direction, length, width);
         this.lanes = new ArrayList<>(nLanes);

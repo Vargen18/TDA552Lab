@@ -1,7 +1,8 @@
-package com.company;
+package controllers;
+
+import com.company.*;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * modifying the model state and updating the view.
  */
 
-public class CarController {
+public class CarController implements CardinalDirections {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -32,9 +33,9 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(0, 0, MotorizedVehicle.cardinalDirection.NORTH));
-        cc.cars.add(new Saab95(100, 0, MotorizedVehicle.cardinalDirection.NORTH));
-        cc.cars.add(new Scania(200, 0, MotorizedVehicle.cardinalDirection.NORTH));
+        cc.cars.add(new Volvo240(0, 0, cardinalDirection.NORTH));
+        cc.cars.add(new Saab95(100, 0, cardinalDirection.NORTH));
+        cc.cars.add(new Scania(200, 0, cardinalDirection.NORTH));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -48,20 +49,36 @@ public class CarController {
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            int i = 0;
-            for (Car car : cars) {
-                car.move();
-                if (car.getPosition().getX() > 800 - 100 || car.getPosition().getY() > (800 - 240 - 60) || car.getPosition().getX() < 0 || car.getPosition().getY() < 0) {
-                    car.flipDirection();
-                }
-                int x = (int) Math.round(car.getPosition().getX());
-                int y = (int) Math.round(car.getPosition().getY());
-                frame.drawPanel.moveit(x, y, cars.get(i).getModelName(), i);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-                i++;
-            }
+            moveAllCars();
         }
+    }
+
+    private void moveAllCars(){
+        int i = 0;
+        for (Car car : cars) {
+            moveAndDrawCar(car, i);
+            i++;
+        }
+    }
+
+    private void moveAndDrawCar(Car car, int i){
+        moveCar(car);
+        drawCar(car, i);
+    }
+
+    private void moveCar(Car car){
+        car.move();
+        if (car.getPosition().getX() > 800 - 100 || car.getPosition().getY() > (800 - 240 - 60) || car.getPosition().getX() < 0 || car.getPosition().getY() < 0) {
+            car.flipDirection();
+        }
+    }
+
+    private void drawCar(Car car, int i){
+        int x = (int) Math.round(car.getPosition().getX());
+        int y = (int) Math.round(car.getPosition().getY());
+        frame.drawPanel.moveit(x, y, cars.get(i).getModelName(), i);
+        // repaint() calls the paintComponent method of the panel
+        frame.drawPanel.repaint();
     }
 
     // Calls the gas method for each car once

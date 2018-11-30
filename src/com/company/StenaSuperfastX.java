@@ -5,7 +5,7 @@ import java.awt.geom.Point2D;
 
 public class StenaSuperfastX extends CarFerry{
 
-    public StenaSuperfastX(int nrDoors, Point2D.Double position, cardinalDirection direction, int maxNCars) {
+    public StenaSuperfastX(int nrDoors, Point2D.Double position, CardinalDirections.cardinalDirection direction, int maxNCars) {
         super(2, 5000, Color.ORANGE, "Stena Superfast X", position, direction, 16, 2.6, 8, 4, 4);
     }
 

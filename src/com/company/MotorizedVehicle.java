@@ -1,10 +1,11 @@
 package com.company;
 
+import javax.smartcardio.Card;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.security.InvalidParameterException;
 
-public abstract class MotorizedVehicle implements Movable {
+public abstract class MotorizedVehicle implements Movable, CardinalDirections {
     private final int nrDoors; // Number of doors on the car
     private final double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
@@ -20,9 +21,9 @@ public abstract class MotorizedVehicle implements Movable {
     /**
      * An array containing cardinal directions
      *
-     * @see Car.cardinalDirection
+     * @see CardinalDirections.cardinalDirection
      */
-    private Car.cardinalDirection[] directions = {Car.cardinalDirection.NORTH, Car.cardinalDirection.EAST, Car.cardinalDirection.SOUTH, Car.cardinalDirection.WEST};
+    private cardinalDirection[] directions = {cardinalDirection.NORTH, cardinalDirection.EAST, cardinalDirection.SOUTH, cardinalDirection.WEST};
     /**
      * An integer from 0 to 3 (inclusive) used as the index when getting the direction of the car.//TODO Comment.
      *
@@ -31,15 +32,8 @@ public abstract class MotorizedVehicle implements Movable {
      */
     private int currentDirectionIndex;
 
-    /**
-     * An enum to represent the four cardinal directions.
-     */
-    enum cardinalDirection {
-        NORTH, EAST, SOUTH, WEST
-    }
 
-
-    public MotorizedVehicle(int nrDoors, double enginePower, Color color, String modelName, Point2D.Double position, cardinalDirection direction, double length, double width) {
+    public MotorizedVehicle(int nrDoors, double enginePower, Color color, String modelName, Point2D.Double position, CardinalDirections.cardinalDirection direction, double length, double width) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
@@ -123,9 +117,9 @@ public abstract class MotorizedVehicle implements Movable {
     /**
      * Returns the cardinal direction the car is currently facing.
      *
-     * @return cardinalDirection
+     * @return CardinalDirections
      */
-    public Car.cardinalDirection getDirection() {
+    public CardinalDirections.cardinalDirection getDirection() {
         return directions[this.currentDirectionIndex];
     }
 

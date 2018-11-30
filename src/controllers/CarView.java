@@ -1,4 +1,4 @@
-package com.company;
+package controllers;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;

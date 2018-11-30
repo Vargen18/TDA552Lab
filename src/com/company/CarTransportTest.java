@@ -10,7 +10,7 @@ public class CarTransportTest {
 
     @Test
     public void gas() {
-        Gooseneck goose = new Gooseneck(new Point2D.Double(1,1), MotorizedVehicle.cardinalDirection.NORTH);
+        Gooseneck goose = new Gooseneck(new Point2D.Double(1,1), CardinalDirections.cardinalDirection.NORTH);
 
         goose.lowerRamp();
         goose.gas(1);
@@ -27,7 +27,7 @@ public class CarTransportTest {
 
     @Test
     public void raiseRamp() {
-        Gooseneck goose = new Gooseneck(new Point2D.Double(1,1), MotorizedVehicle.cardinalDirection.NORTH);
+        Gooseneck goose = new Gooseneck(new Point2D.Double(1,1), CardinalDirections.cardinalDirection.NORTH);
 
         goose.lowerRamp();
         assertEquals(true, goose.rampIsDown);
@@ -41,7 +41,7 @@ public class CarTransportTest {
 
     @Test
     public void lowerRamp() {
-        Gooseneck goose = new Gooseneck(new Point2D.Double(1,1), MotorizedVehicle.cardinalDirection.NORTH);
+        Gooseneck goose = new Gooseneck(new Point2D.Double(1,1), CardinalDirections.cardinalDirection.NORTH);
 
         assertEquals(false, goose.rampIsDown);
 

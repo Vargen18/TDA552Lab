@@ -4,20 +4,19 @@ import org.junit.Test;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
 public class CargoTest {
 
-    Gooseneck goose = new Gooseneck(new Point2D.Double(1, 1), MotorizedVehicle.cardinalDirection.NORTH);
+    Gooseneck goose = new Gooseneck(new Point2D.Double(1, 1), CardinalDirections.cardinalDirection.NORTH);
     Saab95 saab = new Saab95();
 
 
     @Test
     public void load() {
 
-        Gooseneck goose = new Gooseneck(new Point2D.Double(1, 1), MotorizedVehicle.cardinalDirection.NORTH);
+        Gooseneck goose = new Gooseneck(new Point2D.Double(1, 1), CardinalDirections.cardinalDirection.NORTH);
         Saab95 saab = new Saab95();
 
         goose.lowerRamp();
@@ -34,7 +33,7 @@ public class CargoTest {
 
     @Test
     public void unloadLast() {
-        Gooseneck goose = new Gooseneck(new Point2D.Double(1, 1), MotorizedVehicle.cardinalDirection.NORTH);
+        Gooseneck goose = new Gooseneck(new Point2D.Double(1, 1), CardinalDirections.cardinalDirection.NORTH);
         Saab95 saab = new Saab95();
         Saab95 saab2 = new Saab95();
 
@@ -72,7 +71,7 @@ public class CargoTest {
         Saab95 saaab = new Saab95();
         saaab.setPosition(point);
 
-        Gooseneck goose = new Gooseneck(new Point.Double(1, 1247), MotorizedVehicle.cardinalDirection.NORTH);
+        Gooseneck goose = new Gooseneck(new Point.Double(1, 1247), CardinalDirections.cardinalDirection.NORTH);
         double cargoX = goose.getPosition().getX();
         double cargoY = goose.getPosition().getY();
         double thisX = saaab.getPosition().getX();

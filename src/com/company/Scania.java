@@ -1,7 +1,5 @@
 package com.company;
 
-import com.sun.javafx.embed.EmbeddedSceneDSInterface;
-
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.security.InvalidParameterException;
@@ -12,12 +10,12 @@ public class Scania extends Truck {
     private double rampAngle;
 
     //TODO Current direction should we change implementation?
-    public Scania(Point2D.Double position, cardinalDirection direction) {
+    public Scania(Point2D.Double position, CardinalDirections.cardinalDirection direction) {
         super(2, 200, Color.black, "Scania", position, direction, 8, 2.6);
         rampAngle = 0;
     }
 
-    public Scania(int x, int y, cardinalDirection direction) {
+    public Scania(int x, int y, CardinalDirections.cardinalDirection direction) {
         super(2, 200, Color.black, "Scania", new Point2D.Double(x, y), direction, 8, 2.6);
         rampAngle = 0;
     }
@@ -43,7 +41,7 @@ public class Scania extends Truck {
                     System.out.println("Angle of the ramp cannot exceed 70 degrees, therefore ramp was lowered back to 70 degrees.");
                 }
             } else {
-                System.err.println("Cannot lower ramp while vehicle is moving! ");
+                System.err.println("Cannot raise ramp while vehicle is moving! ");
             }
         } catch (InvalidParameterException e) {
             System.err.println("Cannot raise ramp with negative value");
@@ -63,10 +61,10 @@ public class Scania extends Truck {
                 rampAngle = rampAngle - angle;
                 if (rampAngle < 0) {
                     rampAngle = 0;
-                    System.out.println("Angle of the ramp cannot fall below 0 degrees, therefore ramp was lowered back to 0 degrees.");
+                    System.out.println("Angle of the ramp cannot fall below 0 degrees, therefore ramp was raised back to 0 degrees.");
                 }
             } else {
-
+                System.err.println("Cannot raise ramp when vehicle is moving.");
             }
         } catch (InvalidParameterException e) {
             System.err.println("Cannot lower ramp with negative value");

@@ -1,4 +1,4 @@
-package com.company;
+package controllers;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -32,8 +32,8 @@ public class DrawPanel extends JPanel{
     BufferedImage scaniaImage;
     BufferedImage saabImage;
     // To keep track of a single cars position
-    Point volvoPoint = new Point();
-    List<Point> pointList = new ArrayList<>();
+    //Point volvoPoint = new Point();
+    //List<Point> pointList = new ArrayList<>();
     HashMap<Integer, strPointPair> modelnameIndexMap = new HashMap<>();
 
     // TODO: Make this general for all cars
@@ -69,25 +69,25 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        paintAllCars(g);
+        //g.drawImage(ImageIO.read(new File("src\\pics\\" + modelnameIndexMap.get(i), modelnameIndexMap.get(), (int) modelnameIndexMap.get(0).getX(), null); // see javadoc for more info on the parameters //TODO Lösning på hårdkodning är typ ge hashmappen en Integer som key, men tuple
+        //TODO med (Point, String) (där strängen är vilken sorts bil det är)
+        //g.drawImage(saabImage, saabPoint.x, saabPoint.y, null); // see javadoc for more info on the parameters
+        //g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
+    }
+
+    private void paintAllCars(Graphics g){
         for(int i = 0; i < modelnameIndexMap.size(); i++){
-            Point imgPoint = (Point) modelnameIndexMap.get(i).y;
+            Point imgPoint = (Point) modelnameIndexMap.get(i).y; //TODO paintCar(Graphics g)
             int x = (int) imgPoint.getX();
             int y = (int) imgPoint.getY();
 
             try {
-                g.drawImage(ImageIO.read(new File(("src\\picas\\" + modelnameIndexMap.get(i).x + ".jpg"))),x, y, null);
+                g.drawImage(ImageIO.read(new File(("src\\pics\\" + modelnameIndexMap.get(i).x + ".jpg"))),x, y, null);
             } catch(IOException ex)
             {
                 ex.printStackTrace();
             }
         }
-
-
-
-
-        //g.drawImage(ImageIO.read(new File("src\\pics\\" + modelnameIndexMap.get(i), modelnameIndexMap.get(), (int) modelnameIndexMap.get(0).getX(), null); // see javadoc for more info on the parameters //TODO Lösning på hårdkodning är typ ge hashmappen en Integer som key, men tuple
-        //TODO med (Point, String) (där strängen är vilken sorts bil det är)
-        //g.drawImage(saabImage, saabPoint.x, saabPoint.y, null); // see javadoc for more info on the parameters
-        //g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
     }
 }

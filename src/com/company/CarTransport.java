@@ -13,7 +13,7 @@ public abstract class CarTransport extends Truck implements Loadable<Car> {
     protected Boolean rampIsDown;
     private final double maxCargoLength;
 
-    public CarTransport(double enginePower, Color color, String modelName, Point2D.Double position, cardinalDirection direction, double length, double width, int maxNCars, double maxCargoLength) {
+    public CarTransport(double enginePower, Color color, String modelName, Point2D.Double position, CardinalDirections.cardinalDirection direction, double length, double width, int maxNCars, double maxCargoLength) {
         super(2, enginePower, color, modelName, position, direction, length, width);
         carCargo = new Cargo(maxNCars, this.getPosition());
         rampIsDown = false;

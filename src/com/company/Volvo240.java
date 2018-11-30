@@ -13,11 +13,11 @@ public class Volvo240 extends Car {
     private final static double trimFactor = 1.25;
 
     public Volvo240() {
-        super(4, 100, Color.black, "Volvo240", new Point2D.Double(0, 0), cardinalDirection.NORTH, 4, 2);
+        super(4, 100, Color.black, "Volvo240", new Point2D.Double(0, 0), CardinalDirections.cardinalDirection.NORTH, 4, 2);
         stopEngine();
     }
 
-    public Volvo240(int x, int y, cardinalDirection direction) {
+    public Volvo240(int x, int y, CardinalDirections.cardinalDirection direction) {
         super(4, 100, Color.black, "Volvo240", new Point2D.Double(x, y), direction, 4, 2);
         stopEngine();
     }

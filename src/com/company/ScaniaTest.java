@@ -1,13 +1,12 @@
 package com.company;
 
-import java.awt.*;
 import java.awt.geom.Point2D;
 
 import static org.junit.Assert.*;
 
 public class ScaniaTest {
 
-    Scania scania1 = new Scania(new Point2D.Double(0,0), MotorizedVehicle.cardinalDirection.NORTH);
+    Scania scania1 = new Scania(new Point2D.Double(0,0), CardinalDirections.cardinalDirection.NORTH);
 
     @org.junit.Test
     public void gas() {

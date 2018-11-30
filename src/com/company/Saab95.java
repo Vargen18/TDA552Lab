@@ -18,12 +18,12 @@ public class Saab95 extends Car {
     }
 
     public Saab95() {
-        super(2, 125, Color.red, "Saab95", new Point2D.Double(0, 0), cardinalDirection.NORTH, 4, 2);
+        super(2, 125, Color.red, "Saab95", new Point2D.Double(0, 0), CardinalDirections.cardinalDirection.NORTH, 4, 2);
         turboOn = false;
         stopEngine();
     }
 
-    public Saab95(int x, int y, cardinalDirection direction) {
+    public Saab95(int x, int y, CardinalDirections.cardinalDirection direction) {
         super(2, 125, Color.red, "Saab95", new Point2D.Double(x, y), direction, 4, 2);
 
 

@@ -3,7 +3,6 @@ package com.company;
 import org.junit.Test;
 
 import java.awt.geom.Point2D;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -11,9 +10,9 @@ public class GeeseFootTest {
 
     @Test
     public void gas() {
-        GeeseFoot goose1 = new GeeseFoot(new Point2D.Double(0,0), MotorizedVehicle.cardinalDirection.EAST);
-        GeeseFoot goose2 = new GeeseFoot(new Point2D.Double(5,5), MotorizedVehicle.cardinalDirection.EAST);
-        Gooseneck gooseneck = new Gooseneck(new Point2D.Double(3,3), MotorizedVehicle.cardinalDirection.WEST);
+        GeeseFoot goose1 = new GeeseFoot(new Point2D.Double(0,0), CardinalDirections.cardinalDirection.EAST);
+        GeeseFoot goose2 = new GeeseFoot(new Point2D.Double(5,5), CardinalDirections.cardinalDirection.EAST);
+        Gooseneck gooseneck = new Gooseneck(new Point2D.Double(3,3), CardinalDirections.cardinalDirection.WEST);
 
         gooseneck.lowerRamp();
 

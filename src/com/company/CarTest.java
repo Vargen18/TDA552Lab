@@ -1,8 +1,6 @@
 package com.company;
 
-import java.awt.*;
 import java.awt.geom.Point2D;
-import java.sql.SQLOutput;
 
 import static org.junit.Assert.*;
 
@@ -41,9 +39,9 @@ public class CarTest {
     @org.junit.Test
     public void turnRight() {
         Saab95 saab95 = new Saab95();
-        Car.cardinalDirection originalDirection = saab95.getDirection();
+        CardinalDirections.cardinalDirection originalDirection = saab95.getDirection();
         saab95.turnRight();
-        assertEquals(Car.cardinalDirection.EAST, saab95.getDirection());
+        assertEquals(CardinalDirections.cardinalDirection.EAST, saab95.getDirection());
 
         saab95.turnRight();
         saab95.turnRight();
@@ -58,9 +56,9 @@ public class CarTest {
     @org.junit.Test
     public void turnLeft() {
         Saab95 saab95 = new Saab95();
-        Car.cardinalDirection originalDirection = saab95.getDirection();
+        CardinalDirections.cardinalDirection originalDirection = saab95.getDirection();
         saab95.turnLeft();
-        assertEquals(Car.cardinalDirection.WEST, saab95.getDirection());
+        assertEquals(CardinalDirections.cardinalDirection.WEST, saab95.getDirection());
 
         saab95.turnLeft();
         saab95.turnLeft();
@@ -129,7 +127,7 @@ public class CarTest {
     @org.junit.Test
     public void brakeTransport() {
         Volvo240 volvo240 = new Volvo240();
-        Gooseneck gooseneck = new Gooseneck(new Point2D.Double(0,0), MotorizedVehicle.cardinalDirection.EAST);
+        Gooseneck gooseneck = new Gooseneck(new Point2D.Double(0,0), CardinalDirections.cardinalDirection.EAST);
         gooseneck.load(volvo240);
 
         gooseneck.lowerRamp();
