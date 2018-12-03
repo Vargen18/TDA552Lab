@@ -12,7 +12,9 @@ public class Saab95 extends Car {
 
     private boolean turboOn;
 
-    //TODO remove
+    private double turboFactor = 1.3;
+
+    //TODO remove, används bara för testing.
     public boolean isTurboOn() {
         return turboOn;
     }
@@ -46,7 +48,7 @@ public class Saab95 extends Car {
      */
     public double speedFactor() {
         double turbo = 1;
-        if (turboOn) turbo = 1.3;
+        if (turboOn) turbo = turboFactor;
         return getEnginePower() * 0.01 * turbo;
     }
 

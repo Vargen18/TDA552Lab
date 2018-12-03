@@ -10,7 +10,7 @@ public class Gooseneck extends CarTransport {
     }
 
     public double speedFactor() {
-        return getEnginePower() * 0.01;
+        return getEnginePower() * 0.005;
     }
 
 }

@@ -9,7 +9,6 @@ public class Scania extends Truck {
 
     private double rampAngle;
 
-    //TODO Current direction should we change implementation?
     public Scania(Point2D.Double position, CardinalDirections.cardinalDirection direction) {
         super(2, 200, Color.black, "Scania", position, direction, 8, 2.6);
         rampAngle = 0;
@@ -20,9 +19,9 @@ public class Scania extends Truck {
         rampAngle = 0;
     }
 
-    //TODO change?
+    @Override
     public double speedFactor() {
-        return getEnginePower() * 0.01;
+        return getEnginePower() * 0.005;
     }
 
     /**
@@ -57,7 +56,7 @@ public class Scania extends Truck {
         try {
             if (angle <= 0) {
                 throw new InvalidParameterException();
-            } else if (!this.isMoving()) {//TODO Redundant?
+            } else if (!this.isMoving()) {
                 rampAngle = rampAngle - angle;
                 if (rampAngle < 0) {
                     rampAngle = 0;
