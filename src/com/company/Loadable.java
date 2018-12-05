@@ -10,7 +10,10 @@ public interface Loadable<C> {
     }
 
     class CargoIsFull extends Exception {
-
+        private String errMessage = "Cargo is full!";
+        public String getErrMessage(){
+            return errMessage;
+        }
     }
 
 
