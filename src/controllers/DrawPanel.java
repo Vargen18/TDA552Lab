@@ -45,7 +45,7 @@ public class DrawPanel extends JPanel{
     public DrawPanel(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
-        this.setBackground(Color.pink);
+        this.setBackground(Color.GREEN);
 
         // Print an error message in case file is not found with a try/catch block
         try {

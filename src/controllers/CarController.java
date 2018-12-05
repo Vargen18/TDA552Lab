@@ -35,7 +35,7 @@ public class CarController implements CardinalDirections {
 
         cc.cars.add(new Volvo240(0, 0, cardinalDirection.NORTH));
         cc.cars.add(new Saab95(100, 0, cardinalDirection.NORTH));
-        cc.cars.add(new Scania(200, 0, cardinalDirection.NORTH));
+        //cc.cars.add(new Scania(200, 0, cardinalDirection.NORTH));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -101,6 +101,7 @@ public class CarController implements CardinalDirections {
     void setTurboOn() {
         for (Car car : cars) {
             if (car instanceof Saab95) {
+                car.setCurrentSpeed(car.getCurrentSpeed()*2);
                 ((Saab95) car).setTurboOn();
             }
         }

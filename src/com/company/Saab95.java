@@ -50,4 +50,31 @@ public class Saab95 extends Car {
         return getEnginePower() * 0.01 * turbo;
     }
 
+    private void incrementSpeed(double amount) {
+        double currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        if ((currentSpeed > this.getEnginePower() * 1.3) || (!isTurboOn() && currentSpeed > this.getEnginePower())){
+            this.setCurrentSpeed(currentSpeed);
+        }
+    }
+
+    /*@Override
+    public void move(){
+        if(isTurboOn() && this.getCurrentSpeed() < (getEnginePower()*1.3)){
+            this.setCurrentSpeed(this.getCurrentSpeed()+ 0.1);
+        }
+        switch (getDirection()) {
+            case NORTH:
+                this.getPosition().setLocation(this.getPosition().getX(), this.getPosition().getY() + getCurrentSpeed());
+                break;
+            case EAST:
+                this.getPosition().setLocation(this.getPosition().getX() + getCurrentSpeed(), this.getPosition().getY());
+                break;
+            case SOUTH:
+                this.getPosition().setLocation(this.getPosition().getX(), this.getPosition().getY() - getCurrentSpeed());
+                break;
+            case WEST:
+                this.getPosition().setLocation(this.getPosition().getX() - getCurrentSpeed(), this.getPosition().getY());
+        }
+    }*/
+
 }

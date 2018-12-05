@@ -105,6 +105,10 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
         isLoaded = loaded;
     }
 
+    public void setCurrentSpeed(double speed){
+        this.currentSpeed = speed;
+    }
+
     /**
      * Checks if vehicle is moving.
      *
