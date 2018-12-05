@@ -9,5 +9,9 @@ public interface Loadable<C> {
 
     }
 
+    class CargoIsFull extends Exception {
+
+    }
+
 
 }
