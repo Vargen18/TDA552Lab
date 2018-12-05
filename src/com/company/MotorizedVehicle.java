@@ -14,23 +14,14 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
     protected final double width;
     protected final double length;
     protected Boolean isLoaded = false; //Tells if vehicle is loaded or not.
-    /**
-     * 2 dimensional point representing the position of the car, using an x and y coordinate.
-     */
-    private Point2D.Double position; //TODO _NOT_ supposed to be public, ONLY for testing, DO NOT FORGET!
-    /**
-     * An array containing cardinal directions
-     *
-     * @see CardinalDirections.cardinalDirection
-     */
+
+    //2 dimensional point representing the position of the car, using an x and y coordinate.
+    private Point2D.Double position;
+
+    //An array containing cardinal directions
     private cardinalDirection[] directions = {cardinalDirection.NORTH, cardinalDirection.EAST, cardinalDirection.SOUTH, cardinalDirection.WEST};
-    /**
-     * An integer from 0 to 3 (inclusive) used as the index when getting the direction of the car.//TODO Comment.
-     *
-     * @see #directions
-     * @see #getDirection()
-     */
-    private int currentDirectionIndex;
+
+    private int currentDirectionIndex; //An integer from 0 to 3 (inclusive) used as the index when getting the direction of the car
 
 
     public MotorizedVehicle(int nrDoors, double enginePower, Color color, String modelName, Point2D.Double position, CardinalDirections.cardinalDirection direction, double length, double width) {
@@ -39,11 +30,9 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
         this.color = color;
         this.modelName = modelName;
         this.position = position;
-        int currentDirctionIndex;
         int currentDirectionIndex = 0;
         switch (direction) {
             case NORTH:
-                currentDirectionIndex = 0;
                 break;
             case EAST:
                 currentDirectionIndex = 1;
@@ -180,7 +169,7 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
         if (!this.isLoaded) {
             currentDirectionIndex = (currentDirectionIndex + 1) % 4;
         } else {
-            System.err.println(" Can´t turn since vehicle is loaded. ");
+            System.err.println(" Can't turn since vehicle is loaded. ");
         }
 
     }
@@ -202,7 +191,7 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
      * Changes the position of the car based on its direction (one of the cardinal directions) and its speed.
      */
     public void move() {
-        switch (getDirection()) {
+        switch (getDirection()) { //TODO Should use states instead
             case NORTH:
                 position.setLocation(position.getX(), position.getY() + currentSpeed);
                 break;
@@ -226,7 +215,7 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
     public void gas(double amount) {
         if (!this.isLoaded) {
             try {
-                if (!(amount <= 1 && amount >= 0)) {
+                if (!(gasParamWithinBounds(amount))) {
                     throw new InvalidParameterException();
                 } else {
                     incrementSpeed(amount);
@@ -239,15 +228,19 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
         }
     }
 
+    private boolean gasParamWithinBounds(double amount){
+        return amount <= 1 && amount >= 0;
+    }
+
     /**
-     * Increments the speed of the car. Amount is a multiplier of how much the speed increases, and is within the interval [0, 1].
+     * Decrements the speed of the car.
      *
-     * @param amount
+     * @param amount Amount is a multiplier of how much the speed decreases, and is within the interval [0, 1].
      * @see #decrementSpeed(double)
      */
     public void brake(double amount) {
         try {
-            if (!(amount <= 1 && amount >= 0)) {
+            if (!(brakeParamWithinBounds(amount))) {
                 throw new InvalidParameterException();
             } else {
                 decrementSpeed(amount);
@@ -255,6 +248,10 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
         } catch (InvalidParameterException e) {
             System.err.println("Break only accepts floats between 0 and 1.");
         }
+    }
+
+    private boolean brakeParamWithinBounds(double amount){
+        return gasParamWithinBounds(amount);
     }
 
     public String getModelName(){

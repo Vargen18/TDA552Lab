@@ -45,7 +45,12 @@ public class Cargo<T extends Car> implements Loadable<T> {
             this.cargoList.add(cargo);
             cargo.setLoaded(true);
         } else if (cargoList.size() > maxNVehicles) {
-            System.err.println(" Cargo is full! ");
+            try {
+                throw new CargoIsFull();
+            }
+            catch (CargoIsFull e){
+                System.err.println(e.getErrMessage());
+                }
         } else if (cargo.getLoaded()) {
             System.err.println(" Vehicle is already loaded! ");
         }

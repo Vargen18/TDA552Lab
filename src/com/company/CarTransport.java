@@ -7,8 +7,6 @@ import java.security.InvalidParameterException;
 
 public abstract class CarTransport extends Truck implements Loadable<Car> {
 
-    //TODO junit tests
-
     protected Cargo<Car> carCargo;
     protected Boolean rampIsDown;
     private final double maxCargoLength;
@@ -24,31 +22,11 @@ public abstract class CarTransport extends Truck implements Loadable<Car> {
         return getEnginePower() * 0.01;
     }
 
-    /*
-    /**
-     * Method checks if object is close enough to vehicle.
-     *
-     * @param cargo The object to be near the vehicle
-     * @return true or false
-     */ /*
-    //Hardcoded 10 meters //TODO remove?
-    public Boolean isCloseEnough(Car cargo) {
-        double cargoX = cargo.getPosition().getX();
-        double cargoY = cargo.getPosition().getY();
-        double thisX = this.getPosition().getX();
-        double thisY = this.getPosition().getY();
-
-        double distance = Math.sqrt((Math.pow(2, cargoY - thisY)) + (Math.pow(2, cargoX - thisX)));
-        return distance < 10;
-    }*/
-
     /**
      * Method loads vehicle with cargo
      *
      * @param cargo the object to be loaded onto vehicle
      */
-    //TODO replace isCloseEnough with same method in cargo? (Need to fix CarTransport.load().
-    //TODO GeeseFoot1 can load GeeseFoot2 followed by GeeseFoot2 loading GeeseFoot1 without any errors.
     @Override
     public void load(Car cargo) {
         if (!cargo.equals(this)) {
@@ -76,14 +54,13 @@ public abstract class CarTransport extends Truck implements Loadable<Car> {
                 System.err.println("Cargo is not close enough.");
             }
         } else {
-            System.err.println("Can`t load with self");
+            System.err.println("Can't load with self");
         }
     }
 
     /**
-     * Method unloads vehicle
+     * Method unloads vehicle, first in-last out
      *
-     * @return unloaded object in order of first in, last out
      */
     //@Override //TODO Should be override, but Loadable interface does not work as intended, see TODO in Loadable.
     public void unload() {
@@ -138,7 +115,7 @@ public abstract class CarTransport extends Truck implements Loadable<Car> {
      */
     public void lowerRamp() {
         try {
-            if (!this.isMoving()) {//TODO Redundant?
+            if (!this.isMoving()) {
                 rampIsDown = true;
             } else {
                 throw new TruckIsMoving();
