@@ -187,7 +187,7 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
      * Changes the position of the car based on its direction (one of the cardinal directions) and its speed.
      */
     public void move() {
-        switch (getDirection()) {
+        switch (getDirection()) { //TODO Should use states instead
             case NORTH:
                 position.setLocation(position.getX(), position.getY() + currentSpeed);
                 break;
