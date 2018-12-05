@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="548.5508751306166" y="188.0">com.company.Loadable</node>
+    <node x="104.0" y="505.0">controllers.CarController</node>
+    <node x="10.5" y="327.0">com.company.Saab95</node>
+    <node x="336.88776076653244" y="505.0">com.company.Gooseneck</node>
+    <node x="390.26962513061665" y="188.0">com.company.Car</node>
+    <node x="709.8877607665324" y="505.0">com.company.StenaSuperfastX</node>
+    <node x="147.75" y="584.0">controllers.CarView</node>
+    <node x="462.88776076653244" y="505.0">controllers.DrawPanel</node>
+    <node x="115.5" y="327.0">com.company.Volvo240</node>
+    <node x="532.75" y="327.0">com.company.Cargo</node>
+    <node x="586.8877607665324" y="505.0">com.company.GeeseFoot</node>
+    <node x="428.51962513061665" y="416.0">com.company.CarTransport</node>
+    <node x="15.875" y="0.0">com.company.CardinalDirections</node>
+    <node x="375.5219692304824" y="79.0">com.company.MotorizedVehicle</node>
+    <node x="371.3850097460013" y="327.0">com.company.Truck</node>
+    <node x="642.8181421667413" y="416.0">com.company.CarFerry</node>
+    <node x="246.73507706374113" y="416.0">com.company.Scania</node>
+    <node x="433.52196923048234" y="0.0">com.company.Movable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.company.Gooseneck" target="com.company.CarTransport">
+      <point x="0.0" y="-14.5" />
+      <point x="389.88776076653244" y="475.0" />
+      <point x="443.14462513061665" y="475.0" />
+      <point x="-43.875" y="14.5" />
+    </edge>
+    <edge source="com.company.CarFerry" target="com.company.Loadable">
+      <point x="13.14285714285711" y="-14.5" />
+      <point x="701.9609993095984" y="396.0" />
+      <point x="706.1469692304825" y="396.0" />
+      <point x="706.1469692304825" y="247.0" />
+      <point x="628.5508751306166" y="247.0" />
+      <point x="32.0" y="14.5" />
+    </edge>
+    <edge source="com.company.Volvo240" target="com.company.MotorizedVehicle">
+      <point x="-12.0" y="-14.5" />
+      <point x="151.5" y="138.0" />
+      <point x="394.61287832139146" y="138.0" />
+      <point x="-50.909090909090935" y="14.5" />
+    </edge>
+    <edge source="com.company.Truck" target="com.company.Car">
+      <point x="19.5" y="-14.5" />
+      <point x="429.8850097460013" y="307.0" />
+      <point x="428.34654820753974" y="307.0" />
+      <point x="5.076923076923094" y="14.5" />
+    </edge>
+    <edge source="com.company.CarTransport" target="com.company.Car">
+      <point x="-21.9375" y="-14.5" />
+      <point x="465.08212513061665" y="396.0" />
+      <point x="459.8850097460013" y="396.0" />
+      <point x="459.8850097460013" y="297.0" />
+      <point x="433.42347128446283" y="297.0" />
+      <point x="10.153846153846189" y="14.5" />
+    </edge>
+    <edge source="com.company.MotorizedVehicle" target="com.company.CardinalDirections">
+      <point x="-35.00000000000006" y="-14.5" />
+      <point x="410.52196923048234" y="59.0" />
+      <point x="142.75" y="59.0" />
+      <point x="54.375" y="14.5" />
+    </edge>
+    <edge source="com.company.StenaSuperfastX" target="com.company.CarFerry">
+      <point x="-44.33333333333337" y="-14.5" />
+      <point x="732.0544274331991" y="475.0" />
+      <point x="665.8181421667413" y="475.0" />
+      <point x="-23.0" y="14.5" />
+    </edge>
+    <edge source="controllers.CarController" target="com.company.Scania">
+      <point x="51.0" y="-14.5" />
+      <point x="214.5" y="485.0" />
+      <point x="287.73507706374113" y="485.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.company.CarFerry" target="com.company.Cargo">
+      <point x="-39.428571428571445" y="-14.5" />
+      <point x="649.3895707381698" y="396.0" />
+      <point x="582.75" y="396.0" />
+      <point x="10.0" y="14.5" />
+    </edge>
+    <edge source="com.company.StenaSuperfastX" target="com.company.MotorizedVehicle">
+      <point x="44.33333333333337" y="-14.5" />
+      <point x="821.7210940998657" y="128.0" />
+      <point x="509.15833286684597" y="128.0" />
+      <point x="63.63636363636357" y="14.5" />
+    </edge>
+    <edge source="com.company.Saab95" target="com.company.MotorizedVehicle">
+      <point x="-10.625" y="-14.5" />
+      <point x="42.375" y="128.0" />
+      <point x="381.8856055941188" y="128.0" />
+      <point x="-63.636363636363626" y="14.5" />
+    </edge>
+    <edge source="com.company.Saab95" target="com.company.CardinalDirections">
+      <point x="-31.875" y="-14.5" />
+      <point x="21.1875" y="59.0" />
+      <point x="70.25" y="59.0" />
+      <point x="-18.125" y="14.5" />
+    </edge>
+    <edge source="com.company.CarTransport" target="com.company.Cargo">
+      <point x="51.1875" y="-14.5" />
+      <point x="538.2071251306166" y="396.0" />
+      <point x="562.75" y="396.0" />
+      <point x="-10.0" y="14.5" />
+    </edge>
+    <edge source="com.company.Volvo240" target="com.company.Car">
+      <point x="12.0" y="-14.5" />
+      <point x="175.5" y="267.0" />
+      <point x="402.9619328229243" y="267.0" />
+      <point x="-20.30769230769232" y="14.5" />
+    </edge>
+    <edge source="com.company.CarTransport" target="com.company.Loadable">
+      <point x="21.9375" y="-14.5" />
+      <point x="508.95712513061665" y="376.0" />
+      <point x="522.25" y="376.0" />
+      <point x="522.25" y="307.0" />
+      <point x="564.5508751306166" y="307.0" />
+      <point x="-32.0" y="14.5" />
+    </edge>
+    <edge source="com.company.CarFerry" target="com.company.Car">
+      <point x="-13.14285714285711" y="-14.5" />
+      <point x="675.6752850238842" y="376.0" />
+      <point x="646.8589108449023" y="376.0" />
+      <point x="646.8589108449023" y="267.0" />
+      <point x="448.65424051523206" y="267.0" />
+      <point x="25.384615384615415" y="14.5" />
+    </edge>
+    <edge source="com.company.Gooseneck" target="com.company.MotorizedVehicle">
+      <point x="-35.33333333333337" y="-14.5" />
+      <point x="354.55442743319907" y="485.0" />
+      <point x="339.23507706374113" y="485.0" />
+      <point x="339.23507706374113" y="158.0" />
+      <point x="420.06742377593696" y="158.0" />
+      <point x="-25.45454545454544" y="14.5" />
+    </edge>
+    <edge source="com.company.Scania" target="com.company.MotorizedVehicle">
+      <point x="-27.333333333333314" y="-14.5" />
+      <point x="260.4017437304078" y="396.0" />
+      <point x="253.81841039707444" y="396.0" />
+      <point x="253.81841039707444" y="148.0" />
+      <point x="407.3401510486642" y="148.0" />
+      <point x="-38.18181818181819" y="14.5" />
+    </edge>
+    <edge source="com.company.CarTransport" target="com.company.Truck">
+      <point x="-51.1875" y="-14.5" />
+      <point x="435.83212513061665" y="396.0" />
+      <point x="420.1350097460013" y="396.0" />
+      <point x="9.75" y="14.5" />
+    </edge>
+    <edge source="controllers.CarView" target="controllers.DrawPanel">
+      <point x="22.75" y="-14.5" />
+      <point x="216.0" y="554.0" />
+      <point x="488.88776076653244" y="554.0" />
+      <point x="-26.0" y="14.5" />
+    </edge>
+    <edge source="controllers.CarController" target="controllers.CarView">
+      <point x="14.875" y="14.5" />
+      <point x="178.375" y="564.0" />
+      <point x="185.66666666666669" y="564.0" />
+      <point x="-7.583333333333314" y="-14.5" />
+    </edge>
+    <edge source="com.company.Cargo" target="com.company.Loadable">
+      <point x="20.0" y="-14.5" />
+      <point x="592.75" y="307.0" />
+      <point x="596.5508751306166" y="307.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.company.Saab95" target="com.company.Car">
+      <point x="10.625" y="-14.5" />
+      <point x="63.625" y="247.0" />
+      <point x="392.8080866690782" y="247.0" />
+      <point x="-30.461538461538453" y="14.5" />
+    </edge>
+    <edge source="controllers.CarController" target="com.company.Volvo240">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.company.Volvo240" target="com.company.CardinalDirections">
+      <point x="-36.0" y="-14.5" />
+      <point x="127.5" y="237.0" />
+      <point x="124.81814216674127" y="237.0" />
+      <point x="124.81814216674127" y="59.0" />
+      <point x="106.5" y="59.0" />
+      <point x="18.125" y="14.5" />
+    </edge>
+    <edge source="com.company.CarFerry" target="com.company.MotorizedVehicle">
+      <point x="26.285714285714334" y="-14.5" />
+      <point x="715.1038564524556" y="386.0" />
+      <point x="724.6038564524556" y="386.0" />
+      <point x="724.6038564524556" y="158.0" />
+      <point x="470.97651468502784" y="158.0" />
+      <point x="25.45454545454544" y="14.5" />
+    </edge>
+    <edge source="com.company.CarTransport" target="com.company.MotorizedVehicle">
+      <point x="7.3125" y="-14.5" />
+      <point x="494.33212513061665" y="396.0" />
+      <point x="490.51962513061665" y="396.0" />
+      <point x="490.51962513061665" y="168.0" />
+      <point x="458.2492419577551" y="168.0" />
+      <point x="12.727272727272691" y="14.5" />
+    </edge>
+    <edge source="controllers.CarView" target="controllers.CarController">
+      <point x="-37.91666666666664" y="-14.5" />
+      <point x="155.33333333333337" y="564.0" />
+      <point x="118.875" y="564.0" />
+      <point x="-44.625" y="14.5" />
+    </edge>
+    <edge source="controllers.CarController" target="com.company.Saab95">
+      <point x="-17.0" y="-14.5" />
+      <point x="146.5" y="465.0" />
+      <point x="58.5" y="465.0" />
+      <point x="58.5" y="396.0" />
+      <point x="74.25" y="396.0" />
+      <point x="21.25" y="14.5" />
+    </edge>
+    <edge source="controllers.CarController" target="com.company.Car">
+      <point x="17.0" y="-14.5" />
+      <point x="180.5" y="465.0" />
+      <point x="225.23507706374113" y="465.0" />
+      <point x="225.23507706374113" y="287.0" />
+      <point x="413.1157789767705" y="287.0" />
+      <point x="-10.153846153846132" y="14.5" />
+    </edge>
+    <edge source="com.company.MotorizedVehicle" target="com.company.Movable">
+      <point x="34.99999999999994" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.company.Scania" target="com.company.Truck">
+      <point x="27.333333333333314" y="-14.5" />
+      <point x="315.06841039707444" y="396.0" />
+      <point x="400.6350097460013" y="396.0" />
+      <point x="-9.75" y="14.5" />
+    </edge>
+    <edge source="com.company.GeeseFoot" target="com.company.CarTransport">
+      <point x="-34.33333333333337" y="-14.5" />
+      <point x="604.0544274331991" y="485.0" />
+      <point x="501.64462513061665" y="485.0" />
+      <point x="14.625" y="14.5" />
+    </edge>
+    <edge source="controllers.CarController" target="com.company.CardinalDirections">
+      <point x="-51.0" y="-14.5" />
+      <point x="112.5" y="485.0" />
+      <point x="0.0" y="485.0" />
+      <point x="0.0" y="49.0" />
+      <point x="34.0" y="49.0" />
+      <point x="-54.375" y="14.5" />
+    </edge>
+    <edge source="com.company.Cargo" target="com.company.Car">
+      <point x="-20.0" y="-14.5" />
+      <point x="552.75" y="277.0" />
+      <point x="443.57731743830897" y="277.0" />
+      <point x="20.30769230769232" y="14.5" />
+    </edge>
+    <edge source="com.company.Car" target="com.company.MotorizedVehicle">
+      <point x="16.5" y="-14.5" />
+      <point x="439.76962513061665" y="168.0" />
+      <point x="445.5219692304824" y="168.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.company.GeeseFoot" target="com.company.MotorizedVehicle">
+      <point x="34.33333333333337" y="-14.5" />
+      <point x="672.7210940998658" y="485.0" />
+      <point x="746.8181421667413" y="485.0" />
+      <point x="746.8181421667413" y="138.0" />
+      <point x="496.43106013957333" y="138.0" />
+      <point x="50.909090909090935" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="678.5" y="416.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
