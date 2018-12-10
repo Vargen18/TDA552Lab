@@ -14,99 +14,67 @@ public class VehicleController implements CardinalDirections {
 
     // The frame that represents this instance View of the MVC pattern
     VehicleView frame = new VehicleView("CarSim 1.0", this);
-    // A list of cars, modify if needed
-    public ArrayList<Car> cars = new ArrayList<>();
 
+    private VehicleModel vModel;
 
-    public void moveAllCars(){
-        int i = 0;
-        for (Car car : cars) {
-            moveAndDrawCar(car, i);
-            i++;
-        }
+    public VehicleController(VehicleModel vModel) {
+        this.vModel = vModel;
     }
 
-    private void moveAndDrawCar(Car car, int i){
-        moveCar(car);
-        drawCar(car, i);
+    public void moveAllVehicles(){
+        vModel.moveAllVehicles();
     }
 
-    private void moveCar(Car car){
-        car.move();
-        if (car.getPosition().getX() > 800 - 100 || car.getPosition().getY() > (800 - 240 - 60) || car.getPosition().getX() < 0 || car.getPosition().getY() < 0) {
-            car.flipDirection();
-        }
-    }
-
-    private void drawCar(Car car, int i){
+    /*private void drawCar(Car car, int i){
         int x = (int) Math.round(car.getPosition().getX());
         int y = (int) Math.round(car.getPosition().getY());
         frame.drawPanel.moveit(x, y, cars.get(i).getModelName(), i);
         // repaint() calls the paintComponent method of the panel
         frame.drawPanel.repaint();
-    }
+    }*/
 
     // Calls the gas method for each car once
     void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Car car : cars
-        ) {
-            car.gas(gas);
-        }
+        vModel.gas(amount);
     }
 
     void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Car car : cars
-        ) {
-            car.brake(brake);
-        }
+        vModel.brake(amount);
     }
 
     void setTurboOn() {
-        for (Car car : cars) {
-            if (car instanceof Saab95) {
-                car.setCurrentSpeed(car.getCurrentSpeed()*2);
-                ((Saab95) car).setTurboOn();
-            }
-        }
+        vModel.setTurboOn();
     }
 
     void setTurboOff() {
-        for (Car car : cars) {
-            if (car instanceof Saab95) {
-                ((Saab95) car).setTurboOff();
-            }
-        }
+        vModel.setTurboOff();
     }
 
     void lowerRamp() {
-        for (Car car : cars) {
-            if (car instanceof Scania) {
-                ((Scania) car).lowerRamp(70);
-            }
-        }
+        vModel.lowerRamp();
     }
 
     void raiseRamp() {
-        for (Car car : cars) {
-            if (car instanceof Scania) {
-                ((Scania) car).raiseRamp(70);
-            }
-        }
+        vModel.raiseRamp();
     }
 
     void startAll() {
-        for (Car car : cars) {
-            if(!car.isMoving()){
-                car.startEngine();
-            }
-        }
+        vModel.startAll();
     }
 
     void stopAll() {
-       for(Car car : cars) {
-           car.stopEngine();
-       }
+        vModel.stopAll();
+    }
+
+    public void createAndAddSaab(int x, int y, CardinalDirections.cardinalDirection direction) {
+        vModel.createAndAddSaab(x, y, direction);
+    }
+
+    public void createAndAddVolvo(int x, int y, CardinalDirections.cardinalDirection direction) {
+        vModel.createAndAddVolvo(x, y, direction);
+    }
+
+    public void createAndAddScania(int x, int y, CardinalDirections.cardinalDirection direction) {
+        vModel.createAndAddScania(x, y, direction);
     }
 }

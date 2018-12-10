@@ -12,23 +12,25 @@ public class Application {
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
-    private static VehicleController cc;
+    private VehicleModel vModel = new VehicleModel();
+    //Creating a VehicleController
+    private static VehicleController vc; //TODO How to make controller not static in this scenario?
 
     public static void main(String[] args) {
         // Instance of this class
         Application application = new Application();
         //Creating a VehicleView
-        //VehicleView view = new VehicleView("Carsim 1,0", cc);
-        //Creating a VehicleController
-        cc = new VehicleController();
+        VehicleModel vModel = new VehicleModel();
+        vc = new VehicleController(vModel);
+
 
         //cc.addVehicle(new Volvo240(0, 0, CardinalDirections.cardinalDirection.NORTH));
         //cc.addVehicle(new Saab95(100, 0, CardinalDirections.cardinalDirection.NORTH));
         //cc.addVehicle(new Scania(200, 0, cardinalDirection.NORTH));
 
-        cc.cars.add(new Volvo240(0, 0, CardinalDirections.cardinalDirection.NORTH));
-        cc.cars.add(new Saab95(100, 0, CardinalDirections.cardinalDirection.NORTH));
-        cc.cars.add(new Scania(200, 0, CardinalDirections.cardinalDirection.NORTH.NORTH));
+        vModel.createAndAddVolvo(0, 0, CardinalDirections.cardinalDirection.NORTH);
+        vc.createAndAddSaab(100, 0, CardinalDirections.cardinalDirection.NORTH);
+        vc.createAndAddScania(200, 0, CardinalDirections.cardinalDirection.NORTH);
 
         // Start the timer
         application.timer.start();
@@ -39,11 +41,7 @@ public class Application {
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            moveAllCars();
+            vc.moveAllVehicles();
         }
-    }
-
-    private void moveAllCars(){
-        cc.moveAllCars();
     }
 }
