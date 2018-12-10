@@ -12,9 +12,6 @@ import java.util.ArrayList;
 
 public class VehicleController implements CardinalDirections {
 
-    // The frame that represents this instance View of the MVC pattern
-    VehicleView frame = new VehicleView("CarSim 1.0", this);
-
     private VehicleModel vModel;
 
     public VehicleController(VehicleModel vModel) {
