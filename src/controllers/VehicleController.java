@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * modifying the model state and updating the view.
  */
 
-public class CarController implements CardinalDirections {
+public class VehicleController implements CardinalDirections {
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame = new CarView("CarSim 1.0", this);

@@ -12,15 +12,15 @@ public class Application {
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
-    private static CarController cc;
+    private static VehicleController cc;
 
     public static void main(String[] args) {
         // Instance of this class
         Application application = new Application();
         //Creating a CarView
         //CarView view = new CarView("Carsim 1,0", cc);
-        //Creating a CarController
-        cc = new CarController();
+        //Creating a VehicleController
+        cc = new VehicleController();
 
         //cc.addVehicle(new Volvo240(0, 0, CardinalDirections.cardinalDirection.NORTH));
         //cc.addVehicle(new Saab95(100, 0, CardinalDirections.cardinalDirection.NORTH));
