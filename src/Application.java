@@ -17,8 +17,8 @@ public class Application {
     public static void main(String[] args) {
         // Instance of this class
         Application application = new Application();
-        //Creating a CarView
-        //CarView view = new CarView("Carsim 1,0", cc);
+        //Creating a VehicleView
+        //VehicleView view = new VehicleView("Carsim 1,0", cc);
         //Creating a VehicleController
         cc = new VehicleController();
 

@@ -2,9 +2,6 @@ package controllers;
 
 import com.company.*;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /*
@@ -16,7 +13,7 @@ import java.util.ArrayList;
 public class VehicleController implements CardinalDirections {
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame = new CarView("CarSim 1.0", this);
+    VehicleView frame = new VehicleView("CarSim 1.0", this);
     // A list of cars, modify if needed
     public ArrayList<Car> cars = new ArrayList<>();
 
