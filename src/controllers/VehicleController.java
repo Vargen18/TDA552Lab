@@ -31,7 +31,7 @@ public class VehicleController implements CardinalDirections {
     }*/
 
     // Calls the gas method for each car once
-    void gas(int amount) {
+    public void gas(int amount) {
         vModel.gas(amount);
     }
 

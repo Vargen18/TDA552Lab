@@ -1,14 +1,10 @@
-package controllers;
-
-import com.company.VehicleModel;
+package viewer;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -82,22 +78,35 @@ public class DrawPanel extends JPanel {
     }
 
     private void paintAllCars(Graphics g) {
-        for (int i = 0; i < view.vModel.getVehiclesize(); i++) {
-            Point imgPoint = (Point) modelnameIndexMap.get(i).y; //TODO paintCar(Graphics g)
-            int x = (int) imgPoint.getX();
-            int y = (int) imgPoint.getY();
-
-            try {
-                g.drawImage(ImageIO.read(new File(("src\\pics\\" + modelnameIndexMap.get(i).x + ".jpg"))), x, y, null);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
+        int mVehiclesize = view.getvModel().getmVehicles().size();
+        System.out.println(view.getvModel());
+        for (int i = 0; i < mVehiclesize; i++) {
+            //System.out.println("E: " + i);
+            String filePath = getFilepath(i);
+            int x = getXPos(i);
+            int y = getYPos(i);
+            System.out.println("Y: " + y);
+            paintVehicle(g, filePath, x , y);
     }
 
-    public void paintVehicle(Graphics g, String filePath) {
+    }
+    private int getXPos(int i) {
+        return (int) view.getvModel().getmVehicles().get(i).getPosition().getX();
+    }
+
+    private int getYPos(int i) {
+        return (int) view.getvModel().getmVehicles().get(i).getPosition().getY();
+    }
+
+    private String getFilepath(int i) {
+        String modelName = view.getvModel().getmVehicles().get(i).getModelName();
+        String filePath = "src\\pics\\" + modelName + ".jpg";
+        return filePath;
+    }
+
+    private void paintVehicle(Graphics g, String filePath, int x, int y) {
         try {
-            g.drawImage(ImageIO.read(new File(("src\\pics\\" + modelnameIndexMap.get(i).x + ".jpg"))), x, y, null);
+            g.drawImage(ImageIO.read(new File((filePath))), x, y, null);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

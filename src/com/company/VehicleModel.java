@@ -49,6 +49,7 @@ public class VehicleModel {
         ) {
             mVehicle.gas(gas);
         }
+        System.out.println(this);
     }
 
     public void brake(int amount) {

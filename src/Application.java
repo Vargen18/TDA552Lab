@@ -1,5 +1,6 @@
 import com.company.*;
 import controllers.*;
+import viewer.VehicleView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +13,6 @@ public class Application {
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
-    private VehicleModel vModel = new VehicleModel();
 
     //Creating a VehicleController
     private static VehicleController vc; //TODO How to make controller not static in this scenario?
@@ -23,6 +23,7 @@ public class Application {
         // Instance of this class
         Application application = new Application();
         //Creating a VehicleView
+
         VehicleModel vModel = new VehicleModel();
         vc = new VehicleController(vModel);
         frame = new VehicleView("CarSim 1.0", vc, vModel);
@@ -46,7 +47,9 @@ public class Application {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             vc.moveAllVehicles();
+            vc.gas(100);
             frame.repaint();
+
 
         }
     }

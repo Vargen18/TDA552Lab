@@ -1,7 +1,7 @@
-package controllers;
+package viewer;
 
-import com.company.MotorizedVehicle;
 import com.company.VehicleModel;
+import controllers.VehicleController;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -9,7 +9,6 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -25,6 +24,10 @@ public class VehicleView extends JFrame{
 
     // The controller member
     VehicleController vehicleC;
+
+    VehicleModel getvModel() {
+        return vModel;
+    }
 
     //The model
     private VehicleModel vModel;
@@ -117,6 +120,7 @@ public class VehicleView extends JFrame{
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
+/*
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -172,6 +176,7 @@ public class VehicleView extends JFrame{
                 vehicleC.stopAll();
             }
         });
+*/
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
@@ -190,6 +195,7 @@ public class VehicleView extends JFrame{
         drawPanel.repaint();
     }
 
+/*
     private void paintAllCars(Graphics g){
         int nVehicles = vModel.getmVehicles().size();
         for(int i = 0; i < nVehicles; i++){
@@ -202,5 +208,5 @@ public class VehicleView extends JFrame{
             drawPanel.paintVehicle(g, filePath);
 
         }
-    }
+    }*/
 }
