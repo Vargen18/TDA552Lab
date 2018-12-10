@@ -1,11 +1,15 @@
 package controllers;
 
+import com.company.MotorizedVehicle;
+import com.company.VehicleModel;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -20,9 +24,12 @@ public class VehicleView extends JFrame{
     private static final int Y = 800;
 
     // The controller member
-    VehicleController carC;
+    VehicleController vehicleC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    //The model
+    private VehicleModel vModel;
+
+    DrawPanel drawPanel = new DrawPanel(X, Y-240, this);
 
     JPanel controlPanel = new JPanel();
 
@@ -42,8 +49,9 @@ public class VehicleView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public VehicleView(String framename, VehicleController cc){
-        this.carC = cc;
+    public VehicleView(String framename, VehicleController vc, VehicleModel vModel){
+        this.vehicleC = vc;
+        this.vModel = vModel;
         initComponents(framename);
     }
 
@@ -112,56 +120,56 @@ public class VehicleView extends JFrame{
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.gas(gasAmount);
+                vehicleC.gas(gasAmount);
             }
         });
 
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brake(gasAmount);
+                vehicleC.brake(gasAmount);
             }
         });
 
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.setTurboOn();
+                vehicleC.setTurboOn();
             }
         });
 
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.setTurboOff();
+                vehicleC.setTurboOff();
             }
         });
 
         liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.raiseRamp();
+                vehicleC.raiseRamp();
             }
         });
 
         lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.lowerRamp();
+                vehicleC.lowerRamp();
             }
         });
 
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.startAll();
+                vehicleC.startAll();
             }
         });
 
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.stopAll();
+                vehicleC.stopAll();
             }
         });
 
@@ -176,5 +184,23 @@ public class VehicleView extends JFrame{
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void repaint() {
+        drawPanel.repaint();
+    }
+
+    private void paintAllCars(Graphics g){
+        int nVehicles = vModel.getmVehicles().size();
+        for(int i = 0; i < nVehicles; i++){
+            Point imgPoint = (Point) modelnameIndexMap.get(i).y; //TODO paintCar(Graphics g)
+            int x = (int) imgPoint.getX();
+            int y = (int) imgPoint.getY();
+            String modelName = vModel.getmVehicles().get(i).getModelName();
+            String filePath = "src\\pics\\" + modelName + ".jpg";
+
+            drawPanel.paintVehicle(g, filePath);
+
+        }
     }
 }

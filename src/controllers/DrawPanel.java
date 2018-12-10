@@ -1,5 +1,7 @@
 package controllers;
 
+import com.company.VehicleModel;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,11 +14,12 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel{
+public class DrawPanel extends JPanel {
 
     public class strPointPair<String, Point> { //TODO Is this really a tuple?
         public final String x;
         public Point y;
+
         public strPointPair(String x, Point y) {
             this.x = x;
             this.y = y;
@@ -36,16 +39,19 @@ public class DrawPanel extends JPanel{
     //List<Point> pointList = new ArrayList<>();
     HashMap<Integer, strPointPair> modelnameIndexMap = new HashMap<>();
 
+    VehicleView view;
+
     // TODO: Make this general for all cars
-    void moveit(int x, int y, String name, int i){
+    void moveit(int x, int y, String name, int i) {
         modelnameIndexMap.put(i, new strPointPair<String, Point>(name, new Point(x, y)));
     }
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawPanel(int x, int y, VehicleView view) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.GREEN);
+        this.view = view;
 
         // Print an error message in case file is not found with a try/catch block
         try {
@@ -57,8 +63,7 @@ public class DrawPanel extends JPanel{
             volvoImage = ImageIO.read(new File("src\\pics\\Volvo240.jpg"));
             saabImage = ImageIO.read(new File("src\\pics\\Saab95.jpg"));
             scaniaImage = ImageIO.read(new File("src\\pics\\Scania.jpg"));
-        } catch (IOException ex)
-        {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
@@ -76,18 +81,25 @@ public class DrawPanel extends JPanel{
         //g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
     }
 
-    private void paintAllCars(Graphics g){
-        for(int i = 0; i < modelnameIndexMap.size(); i++){
+    private void paintAllCars(Graphics g) {
+        for (int i = 0; i < view.vModel.getVehiclesize(); i++) {
             Point imgPoint = (Point) modelnameIndexMap.get(i).y; //TODO paintCar(Graphics g)
             int x = (int) imgPoint.getX();
             int y = (int) imgPoint.getY();
 
             try {
-                g.drawImage(ImageIO.read(new File(("src\\pics\\" + modelnameIndexMap.get(i).x + ".jpg"))),x, y, null);
-            } catch(IOException ex)
-            {
+                g.drawImage(ImageIO.read(new File(("src\\pics\\" + modelnameIndexMap.get(i).x + ".jpg"))), x, y, null);
+            } catch (IOException ex) {
                 ex.printStackTrace();
             }
+        }
+    }
+
+    public void paintVehicle(Graphics g, String filePath) {
+        try {
+            g.drawImage(ImageIO.read(new File(("src\\pics\\" + modelnameIndexMap.get(i).x + ".jpg"))), x, y, null);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 }

@@ -13,8 +13,11 @@ public class Application {
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
     private VehicleModel vModel = new VehicleModel();
+
     //Creating a VehicleController
     private static VehicleController vc; //TODO How to make controller not static in this scenario?
+    // The frame that represents this instance View of the MVC pattern
+    private static VehicleView frame; //TODO: SHOULD NOT BE LIKE THIS MAN AND NOT STATIC.
 
     public static void main(String[] args) {
         // Instance of this class
@@ -22,13 +25,14 @@ public class Application {
         //Creating a VehicleView
         VehicleModel vModel = new VehicleModel();
         vc = new VehicleController(vModel);
+        frame = new VehicleView("CarSim 1.0", vc, vModel);
 
 
         //cc.addVehicle(new Volvo240(0, 0, CardinalDirections.cardinalDirection.NORTH));
         //cc.addVehicle(new Saab95(100, 0, CardinalDirections.cardinalDirection.NORTH));
         //cc.addVehicle(new Scania(200, 0, cardinalDirection.NORTH));
 
-        vModel.createAndAddVolvo(0, 0, CardinalDirections.cardinalDirection.NORTH);
+        vc.createAndAddVolvo(0, 0, CardinalDirections.cardinalDirection.NORTH);
         vc.createAndAddSaab(100, 0, CardinalDirections.cardinalDirection.NORTH);
         vc.createAndAddScania(200, 0, CardinalDirections.cardinalDirection.NORTH);
 
@@ -42,6 +46,8 @@ public class Application {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             vc.moveAllVehicles();
+            frame.repaint();
+
         }
     }
 }

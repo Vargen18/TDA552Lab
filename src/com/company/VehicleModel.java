@@ -1,9 +1,14 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class VehicleModel {
-    private ArrayList<MotorizedVehicle> mVehicles = new ArrayList<>();
+    private List<MotorizedVehicle> mVehicles = new ArrayList<>();
+
+    public List<MotorizedVehicle> getmVehicles(){
+        return mVehicles;
+    }
 
     private void addVehicle(MotorizedVehicle vehicle) {
         mVehicles.add(vehicle);
