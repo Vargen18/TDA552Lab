@@ -1,6 +1,10 @@
 package controllers;
 
-import com.company.*;
+import model.ButtonCommands;
+import model.CardinalDirections;
+import model.VehicleModel;
+import model.ViewObserver;
+
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -8,7 +12,7 @@ import com.company.*;
  * modifying the model state and updating the view.
  */
 
-public class VehicleController implements CardinalDirections, ViewObserver{
+public class VehicleController implements CardinalDirections, ViewObserver {
 
     private VehicleModel vModel;
 

@@ -1,8 +1,8 @@
 package viewer;
 
-import com.company.ButtonCommands;
-import com.company.VehicleModel;
-import com.company.ViewObserver;
+import model.ButtonCommands;
+import model.VehicleModel;
+import model.ViewObserver;
 import controllers.VehicleController;
 
 import javax.swing.*;

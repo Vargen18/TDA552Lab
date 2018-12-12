@@ -1,4 +1,4 @@
-package com.company;
+package model;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class Cargo<T extends Car> implements Loadable<T> {
         this.maxNVehicles = i;
     }
 
-    //T cargoA = new com.company.Cargo<>();
+    //T cargoA = new Cargo<>();
 
     /**
      * Method loads vehicle with object

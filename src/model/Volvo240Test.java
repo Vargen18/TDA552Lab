@@ -1,4 +1,4 @@
-package com.company;
+package model;
 
 import org.junit.Test;
 

@@ -1,6 +1,4 @@
-package com.company;
-
-import java.awt.geom.Point2D;
+package model;
 
 /**
  * Interface declaring methods required in order for an object to be able to move.

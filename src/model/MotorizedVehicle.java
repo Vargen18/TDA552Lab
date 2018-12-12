@@ -1,6 +1,5 @@
-package com.company;
+package model;
 
-import javax.smartcardio.Card;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.security.InvalidParameterException;

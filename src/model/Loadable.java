@@ -1,4 +1,4 @@
-package com.company;
+package model;
 
 public interface Loadable<C> {
     void load(C cargo);

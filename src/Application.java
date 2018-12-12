@@ -1,4 +1,5 @@
-import com.company.*;
+import model.CardinalDirections;
+import model.VehicleModel;
 import controllers.*;
 import viewer.VehicleView;
 
