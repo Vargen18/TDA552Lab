@@ -54,20 +54,19 @@ public class VehicleModel {
     }
 
     // Calls the gas method for each mVehicle once
-    public void gas(int amount) {
+    private void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (MotorizedVehicle mVehicle : mVehicles
         ) {
             mVehicle.gas(gas);
         }
-        System.out.println(this);
     }
 
     public void gas(){
         gas(gasAmount);
     }
 
-    public void brake(int amount) {
+    private void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (MotorizedVehicle mVehicle : mVehicles
         ) {
@@ -82,7 +81,6 @@ public class VehicleModel {
     public void setTurboOn() {
         for (MotorizedVehicle mVehicle : mVehicles) {
             if (mVehicle instanceof Saab95) {
-                mVehicle.setCurrentSpeed(mVehicle.getCurrentSpeed()*2);
                 ((Saab95) mVehicle).setTurboOn();
             }
         }

@@ -79,13 +79,11 @@ public class DrawPanel extends JPanel {
 
     private void paintAllCars(Graphics g) {
         int mVehiclesize = view.getvModel().getmVehicles().size();
-        System.out.println(view.getvModel());
         for (int i = 0; i < mVehiclesize; i++) {
             //System.out.println("E: " + i);
             String filePath = getFilepath(i);
             int x = getXPos(i);
             int y = getYPos(i);
-            System.out.println("Y: " + y);
             paintVehicle(g, filePath, x , y);
     }
 

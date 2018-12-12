@@ -37,7 +37,7 @@ public class Scania extends Truck {
                 rampAngle = rampAngle + angle;
                 if (rampAngle > 70) {
                     rampAngle = 70;
-                    System.out.println("Angle of the ramp cannot exceed 70 degrees, therefore ramp was lowered back to 70 degrees.");
+                    System.err.println("Angle of the ramp cannot exceed 70 degrees, therefore ramp was lowered back to 70 degrees.");
                 }
             } else {
                 System.err.println("Cannot raise ramp while vehicle is moving! ");
@@ -60,7 +60,7 @@ public class Scania extends Truck {
                 rampAngle = rampAngle - angle;
                 if (rampAngle < 0) {
                     rampAngle = 0;
-                    System.out.println("Angle of the ramp cannot fall below 0 degrees, therefore ramp was raised back to 0 degrees.");
+                    System.err.println("Angle of the ramp cannot fall below 0 degrees, therefore ramp was raised back to 0 degrees.");
                 }
             } else {
                 System.err.println("Cannot raise ramp when vehicle is moving.");
