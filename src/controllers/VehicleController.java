@@ -2,15 +2,13 @@ package controllers;
 
 import com.company.*;
 
-import java.util.ArrayList;
-
 /*
  * This class represents the Controller part in the MVC pattern.
  * It's responsibilities is to listen to the View and respond in an appropriate manner by
  * modifying the model state and updating the view.
  */
 
-public class VehicleController implements CardinalDirections {
+public class VehicleController implements CardinalDirections, ViewObserver{
 
     private VehicleModel vModel;
 
@@ -31,12 +29,12 @@ public class VehicleController implements CardinalDirections {
     }*/
 
     // Calls the gas method for each car once
-    public void gas(int amount) {
-        vModel.gas(amount);
+    public void gas() {
+        vModel.gas();
     }
 
-    void brake(int amount) {
-        vModel.brake(amount);
+    void brake() {
+        vModel.brake();
     }
 
     void setTurboOn() {
@@ -61,6 +59,36 @@ public class VehicleController implements CardinalDirections {
 
     void stopAll() {
         vModel.stopAll();
+    }
+
+    @Override
+    public void doStuff(String command){
+        switch(command) {
+            case ButtonCommands.gas:
+                this.gas();
+                break;
+            case ButtonCommands.brake:
+                this.brake();
+                break;
+            case ButtonCommands.lowerRamp:
+                this.lowerRamp();
+                break;
+            case ButtonCommands.raiseRamp:
+                this.raiseRamp();
+                break;
+            case ButtonCommands.turboOff:
+                this.setTurboOff();
+                break;
+            case ButtonCommands.turboOn:
+                this.setTurboOn();
+                break;
+            case ButtonCommands.startAll:
+                this.startAll();
+                break;
+            case ButtonCommands.stopAll:
+                this.stopAll();
+                break;
+        }
     }
 
     public void createAndAddSaab(int x, int y, CardinalDirections.cardinalDirection direction) {

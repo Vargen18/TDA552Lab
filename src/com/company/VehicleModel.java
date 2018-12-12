@@ -4,11 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleModel {
+
+    private int gasAmount = 0;
+
+    private int brakeAmount = 0;
+
     private List<MotorizedVehicle> mVehicles = new ArrayList<>();
 
     public List<MotorizedVehicle> getmVehicles(){
         return mVehicles;
     }
+
+    public void setGasAmount(int gasAmount) {
+        this.gasAmount = gasAmount;
+        this.brakeAmount = gasAmount;
+    }
+
 
     private void addVehicle(MotorizedVehicle vehicle) {
         mVehicles.add(vehicle);
@@ -52,12 +63,20 @@ public class VehicleModel {
         System.out.println(this);
     }
 
+    public void gas(){
+        gas(gasAmount);
+    }
+
     public void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (MotorizedVehicle mVehicle : mVehicles
         ) {
             mVehicle.brake(brake);
         }
+    }
+
+    public void brake() {
+        brake(brakeAmount);
     }
 
     public void setTurboOn() {

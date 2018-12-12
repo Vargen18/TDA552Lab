@@ -27,6 +27,7 @@ public class Application {
         VehicleModel vModel = new VehicleModel();
         vc = new VehicleController(vModel);
         frame = new VehicleView("CarSim 1.0", vc, vModel);
+        frame.addObserver(vc);
 
 
         //cc.addVehicle(new Volvo240(0, 0, CardinalDirections.cardinalDirection.NORTH));
@@ -47,10 +48,7 @@ public class Application {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             vc.moveAllVehicles();
-            vc.gas(100);
             frame.repaint();
-
-
         }
     }
 }

@@ -1,6 +1,8 @@
 package viewer;
 
+import com.company.ButtonCommands;
 import com.company.VehicleModel;
+import com.company.ViewObserver;
 import controllers.VehicleController;
 
 import javax.swing.*;
@@ -9,6 +11,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -18,12 +22,13 @@ import java.awt.event.ActionListener;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class VehicleView extends JFrame{
+public class VehicleView extends JFrame implements ButtonCommands{
     private static final int X = 800;
     private static final int Y = 800;
 
     // The controller member
     VehicleController vehicleC;
+    private List<ViewObserver> observers = new ArrayList<>();
 
     VehicleModel getvModel() {
         return vModel;
@@ -38,7 +43,6 @@ public class VehicleView extends JFrame{
 
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
     JButton gasButton = new JButton("Gas");
@@ -56,6 +60,10 @@ public class VehicleView extends JFrame{
         this.vehicleC = vc;
         this.vModel = vModel;
         initComponents(framename);
+    }
+
+    public void addObserver(ViewObserver observer) {
+        observers.add(observer);
     }
 
     // Sets everything in place and fits everything
@@ -78,7 +86,8 @@ public class VehicleView extends JFrame{
         gasSpinner = new JSpinner(spinnerModel);
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
+                int gasAmount = (int) ((JSpinner)e.getSource()).getValue();
+                vModel.setGasAmount(gasAmount);
             }
         });
 
@@ -120,63 +129,63 @@ public class VehicleView extends JFrame{
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
-/*
+
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.gas(gasAmount);
+                notifyObservers(ButtonCommands.gas);
             }
         });
 
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.brake(gasAmount);
+                notifyObservers(ButtonCommands.brake);
             }
         });
 
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.setTurboOn();
+                notifyObservers(ButtonCommands.turboOn);
             }
         });
 
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.setTurboOff();
+                notifyObservers(ButtonCommands.turboOff);
             }
         });
 
         liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.raiseRamp();
+                notifyObservers(ButtonCommands.raiseRamp);
             }
         });
 
         lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.lowerRamp();
+                notifyObservers(ButtonCommands.lowerRamp);
             }
         });
 
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.startAll();
+                notifyObservers(ButtonCommands.startAll);
             }
         });
 
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleC.stopAll();
+                notifyObservers(ButtonCommands.stopAll);
             }
         });
-*/
+
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
@@ -209,4 +218,9 @@ public class VehicleView extends JFrame{
 
         }
     }*/
+    private void notifyObservers(String command){
+        for (ViewObserver observer : observers){
+            observer.doStuff(command);
+        }
+    }
 }
