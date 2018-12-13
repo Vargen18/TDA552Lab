@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class Application {
 
     // The delay (ms) corresponds to 59 updates a sec (hz)
-    private final int delay = 17;
+    private final int delay = 5;
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());

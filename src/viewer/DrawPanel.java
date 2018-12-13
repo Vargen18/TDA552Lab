@@ -12,19 +12,6 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
-    public class strPointPair<String, Point> { //TODO Is this really a tuple?
-        public final String x;
-        public Point y;
-
-        public strPointPair(String x, Point y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public Point getY() {
-            return this.y;
-        }
-    }
 
     // Just a single image, TODO: Generalize - Big comment: Hur fan generaliserar vi något n'r vi måste ha deras exakta path vilket vi inte vet något om i koden, wtf???? .-.
     BufferedImage volvoImage;
@@ -33,14 +20,8 @@ public class DrawPanel extends JPanel {
     // To keep track of a single cars position
     //Point volvoPoint = new Point();
     //List<Point> pointList = new ArrayList<>();
-    HashMap<Integer, strPointPair> modelnameIndexMap = new HashMap<>();
 
     VehicleView view;
-
-    // TODO: Make this general for all cars
-    void moveit(int x, int y, String name, int i) {
-        modelnameIndexMap.put(i, new strPointPair<String, Point>(name, new Point(x, y)));
-    }
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y, VehicleView view) {
