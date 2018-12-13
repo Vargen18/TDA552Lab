@@ -26,17 +26,17 @@ public class VehicleModel {
     }
 
     public void createAndAddSaab(int x, int y, CardinalDirections.cardinalDirection direction) {
-        Saab95 saab95 = new Saab95(x, y, direction);
+        Saab95 saab95 = VehicleFactory.createSaab(x, y, direction);
         addVehicle(saab95);
     }
 
     public void createAndAddVolvo(int x, int y, CardinalDirections.cardinalDirection direction) {
-        Volvo240 volvo = new Volvo240(x, y, direction);
+        Volvo240 volvo = VehicleFactory.createVolvo(x, y, direction);
         addVehicle(volvo);
     }
 
     public void createAndAddScania(int x, int y, CardinalDirections.cardinalDirection direction) {
-        Scania scania = new Scania(x, y, direction);
+        Scania scania = VehicleFactory.createScania(x, y, direction);
         addVehicle(scania);
     }
 

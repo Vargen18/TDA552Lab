@@ -9,12 +9,12 @@ public class Scania extends Truck {
 
     private double rampAngle;
 
-    public Scania(Point2D.Double position, CardinalDirections.cardinalDirection direction) {
+    Scania(Point2D.Double position, CardinalDirections.cardinalDirection direction) {
         super(2, 200, Color.black, "Scania", position, direction, 8, 2.6);
         rampAngle = 0;
     }
 
-    public Scania(int x, int y, CardinalDirections.cardinalDirection direction) {
+    Scania(int x, int y, CardinalDirections.cardinalDirection direction) {
         super(2, 200, Color.black, "Scania", new Point2D.Double(x, y), direction, 8, 2.6);
         rampAngle = 0;
     }
