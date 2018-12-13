@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class VehicleModel {
 
@@ -67,6 +68,15 @@ public class VehicleModel {
         }
     }
 
+//TODO
+    public void gasGasGas() {
+        for (MotorizedVehicle mVehicle : mVehicles
+        ) {
+            mVehicle.gasGasGas();
+            mVehicle.turnLeft();
+        }
+    }
+
     public void gas(){
         gas(gasAmount);
     }
@@ -127,5 +137,36 @@ public class VehicleModel {
         for(MotorizedVehicle mVehicle : mVehicles) {
             mVehicle.stopEngine();
         }
+    }
+
+    public void addCar() {
+        if(mVehicles.size() >= 8) {
+            System.err.println("There are too many cars. (max " + mVehicles.size() + ")");
+            return;
+        } else {
+            int rand = new Random().nextInt(3);
+            int nVehicles = mVehicles.size();
+            switch (rand) {
+                case 0:
+                    createAndAddSaab(nVehicles * 100, 0, CardinalDirections.cardinalDirection.NORTH);
+                    break;
+                case 1:
+                    createAndAddVolvo(nVehicles * 100, 0, CardinalDirections.cardinalDirection.NORTH);
+                    break;
+                case 2:
+                    createAndAddScania(nVehicles * 100, 0, CardinalDirections.cardinalDirection.NORTH);
+                    break;
+            }
+        }
+
+    }
+
+    public void removeCar() {
+        if(mVehicles.size() > 0) {
+            mVehicles.remove(mVehicles.size()-1);
+        } else {
+            System.err.println("No more vehicles left!");
+        }
+
     }
 }

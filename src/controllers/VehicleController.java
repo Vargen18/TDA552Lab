@@ -65,6 +65,10 @@ public class VehicleController implements CardinalDirections, ViewObserver {
         vModel.stopAll();
     }
 
+    void addCar() {vModel.addCar();}
+
+    void removeCar() {vModel.removeCar();}
+
     @Override
     public void doStuff(String command){
         switch(command) {
@@ -91,6 +95,15 @@ public class VehicleController implements CardinalDirections, ViewObserver {
                 break;
             case ButtonCommands.stopAll:
                 this.stopAll();
+                break;
+            case ButtonCommands.gasGasGas:
+                vModel.gasGasGas();
+                break;
+            case ButtonCommands.addCar:
+                vModel.addCar();
+                break;
+            case ButtonCommands.removeCar:
+                vModel.removeCar();
                 break;
         }
     }

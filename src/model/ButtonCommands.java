@@ -10,5 +10,8 @@ public interface ButtonCommands {
     String raiseRamp = "Raise ramp pressed";
     String startAll = "Start all pressed";
     String stopAll = "Stop all pressed";
-
+    String gasGasGas = "gasGasGas";
+    String addCar = "addCar";
+    String removeCar = "removeCar";
+    String blank = "removeCar";
 }

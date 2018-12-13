@@ -49,11 +49,15 @@ public class VehicleView extends JFrame implements ButtonCommands{
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
     JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    JButton liftBedButton = new JButton("Lift Bed");
+    JButton lowerBedButton = new JButton("Lower Bed");
+    JButton addCarButton = new JButton("Add Car");
+    JButton removeCarButton = new JButton("Remove Car :)");
+    JButton blankButton = new JButton("Blank Button");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
+    JButton gasGasGas = new JButton("Gas gas gas!");
 
     // Constructor
     public VehicleView(String framename, VehicleController vc, VehicleModel vModel){
@@ -108,9 +112,14 @@ public class VehicleView extends JFrame implements ButtonCommands{
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(liftBedButton, 2);
-        controlPanel.add(brakeButton, 3);
-        controlPanel.add(turboOffButton, 4);
-        controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addCarButton, 3);
+        controlPanel.add(gasGasGas, 4); //TODO
+        controlPanel.add(brakeButton, 5);
+        controlPanel.add(turboOffButton, 6);
+        controlPanel.add(lowerBedButton, 7);
+        controlPanel.add(removeCarButton, 8);
+        controlPanel.add(blankButton, 9);
+
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -185,6 +194,35 @@ public class VehicleView extends JFrame implements ButtonCommands{
                 notifyObservers(ButtonCommands.stopAll);
             }
         });
+
+        gasGasGas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                notifyObservers(ButtonCommands.gasGasGas);
+            }
+        });
+
+        addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                notifyObservers(ButtonCommands.addCar);
+            }
+        });
+
+        removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                notifyObservers(ButtonCommands.removeCar);
+            }
+        });
+
+        blankButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                notifyObservers(ButtonCommands.removeCar);
+            }
+        });
+
 
 
         // Make the frame pack all it's components by respecting the sizes if possible.

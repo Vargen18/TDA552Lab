@@ -173,6 +173,10 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
 
     }
 
+    public void gasGasGas() {
+        setCurrentSpeed(currentSpeed*10);
+    }
+
     /**
      * Changes direction of the car by -90° degrees. (for example: North to west)
      */
