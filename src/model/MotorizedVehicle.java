@@ -1,5 +1,7 @@
 package model;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.security.InvalidParameterException;
@@ -13,6 +15,16 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
     protected final double width;
     protected final double length;
     protected Boolean isLoaded = false; //Tells if vehicle is loaded or not.
+    public int dejavuCounter = 0;
+    public Boolean dejavu = false;
+
+    public void incDejavu() {
+        dejavuCounter++;
+    }
+
+    public void setDejavu() {
+        dejavu = true;
+    }
 
     //2 dimensional point representing the position of the car, using an x and y coordinate.
     private Point2D.Double position;
@@ -194,6 +206,15 @@ public abstract class MotorizedVehicle implements Movable, CardinalDirections {
      * Changes the position of the car based on its direction (one of the cardinal directions) and its speed.
      */
     public void move() {
+
+        if(dejavu) {
+            incDejavu();
+            if (dejavuCounter >= 20) {
+                turnLeft();
+                dejavuCounter = 0;
+                System.out.println("DEJAVU!");
+            }
+        }
         switch (getDirection()) { //TODO Should use states instead
             case NORTH:
                 position.setLocation(position.getX(), position.getY() + currentSpeed);

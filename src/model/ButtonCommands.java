@@ -13,5 +13,5 @@ public interface ButtonCommands {
     String gasGasGas = "gasGasGas";
     String addCar = "addCar";
     String removeCar = "removeCar";
-    String blank = "removeCar";
+    String dejavu = "dejavu";
 }

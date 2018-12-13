@@ -4,6 +4,8 @@ import model.ButtonCommands;
 import model.CardinalDirections;
 import model.VehicleModel;
 import model.ViewObserver;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 
 /*
@@ -18,6 +20,7 @@ public class VehicleController implements CardinalDirections, ViewObserver {
 
     public VehicleController(VehicleModel vModel) {
         this.vModel = vModel;
+        String dejavu = "src\\MP3\\dejavu";
     }
 
     public void moveAllVehicles(){
@@ -104,6 +107,9 @@ public class VehicleController implements CardinalDirections, ViewObserver {
                 break;
             case ButtonCommands.removeCar:
                 vModel.removeCar();
+                break;
+            case ButtonCommands.dejavu:
+                vModel.dejevu();
                 break;
         }
     }

@@ -73,7 +73,6 @@ public class VehicleModel {
         for (MotorizedVehicle mVehicle : mVehicles
         ) {
             mVehicle.gasGasGas();
-            mVehicle.turnLeft();
         }
     }
 
@@ -158,7 +157,12 @@ public class VehicleModel {
                     break;
             }
         }
+    }
 
+    public void dejevu() {
+        for(MotorizedVehicle mVehicle : mVehicles) {
+            mVehicle.setDejavu();
+        }
     }
 
     public void removeCar() {

@@ -53,7 +53,7 @@ public class VehicleView extends JFrame implements ButtonCommands{
     JButton lowerBedButton = new JButton("Lower Bed");
     JButton addCarButton = new JButton("Add Car");
     JButton removeCarButton = new JButton("Remove Car :)");
-    JButton blankButton = new JButton("Blank Button");
+    JButton dejavu = new JButton("Deja´vu");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -118,7 +118,7 @@ public class VehicleView extends JFrame implements ButtonCommands{
         controlPanel.add(turboOffButton, 6);
         controlPanel.add(lowerBedButton, 7);
         controlPanel.add(removeCarButton, 8);
-        controlPanel.add(blankButton, 9);
+        controlPanel.add(dejavu, 9);
 
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
@@ -216,10 +216,10 @@ public class VehicleView extends JFrame implements ButtonCommands{
             }
         });
 
-        blankButton.addActionListener(new ActionListener() {
+        dejavu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                notifyObservers(ButtonCommands.removeCar);
+                notifyObservers(ButtonCommands.dejavu);
             }
         });
 
