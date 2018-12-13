@@ -40,6 +40,11 @@ public class VehicleModel {
         addVehicle(scania);
     }
 
+    public void createAndAddGooseneck(int x, int y, CardinalDirections.cardinalDirection direction) {
+        Gooseneck gooseneck = VehicleFactory.createGooseneck(x, y, direction);
+        addVehicle(gooseneck);
+    }
+
     public void moveAllVehicles(){
         for(MotorizedVehicle vehicle : mVehicles) {
             moveVehicle(vehicle);
