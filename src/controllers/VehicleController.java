@@ -1,11 +1,17 @@
 package controllers;
 
+import javafx.application.Application;
 import model.ButtonCommands;
 import model.CardinalDirections;
 import model.VehicleModel;
 import model.ViewObserver;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
+import mp3App.JavaFXApplication;
+import javafx.embed.swing.JFXPanel;
+
+import java.io.File;
 
 
 /*
@@ -17,10 +23,14 @@ import javafx.scene.media.MediaPlayer;
 public class VehicleController implements CardinalDirections, ViewObserver {
 
     private VehicleModel vModel;
-
+    private MediaPlayer mediaPlayer;
+    private String dejavu;
+    private Media hit;
+    private JavaFXApplication app;
     public VehicleController(VehicleModel vModel) {
         this.vModel = vModel;
-        String dejavu = "src\\MP3\\dejavu";
+        app = new JavaFXApplication();
+        final JFXPanel fxPanel = new JFXPanel();
     }
 
     public void moveAllVehicles(){
@@ -110,6 +120,7 @@ public class VehicleController implements CardinalDirections, ViewObserver {
                 break;
             case ButtonCommands.dejavu:
                 vModel.dejevu();
+                app.play();
                 break;
         }
     }

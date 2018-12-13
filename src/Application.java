@@ -1,6 +1,7 @@
 import model.CardinalDirections;
 import model.VehicleModel;
 import controllers.*;
+import mp3App.JavaFXApplication;
 import viewer.VehicleView;
 
 import javax.swing.*;
@@ -30,7 +31,7 @@ public class Application {
         frame = new VehicleView("CarSim 1.0", vc, vModel);
         frame.addObserver(vc);
 
-
+        JavaFXApplication app = new JavaFXApplication();
         //cc.addVehicle(new Volvo240(0, 0, CardinalDirections.cardinalDirection.NORTH));
         //cc.addVehicle(new Saab95(100, 0, CardinalDirections.cardinalDirection.NORTH));
         //cc.addVehicle(new Scania(200, 0, cardinalDirection.NORTH));
